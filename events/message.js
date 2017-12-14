@@ -13,7 +13,7 @@ module.exports = message => {
     cmd = client.commands.get(client.aliases.get(command));
   }
   if (cmd) {
-    if (perms < cmd.conf.permLevel) return;
+    if (perms < cmd.conf.permLevel) return message.reply(` у тебя недостаточно прав. :)`);
     cmd.run(client, message, args, perms);
   }
 

@@ -4,10 +4,8 @@
   "description": "test",
   "main": "app.js",
   "dependencies": {
-    "discord.js": "^11.2.1"
-  },
-  "devDependencies": {
-    "printscreen": "^1.2.1"
+    "discord.js": "^11.2.1",
+    "moment": "^2.19.4"
   },
   "scripts": {
     "start": "node app.js"
