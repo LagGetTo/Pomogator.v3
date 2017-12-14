@@ -18,7 +18,8 @@ exports.run = (client, message, params) => {
     embed: {
       color: 0x4e2bb3,
       author: {
-        name: `https://mcesii.ru`,
+        name: `Шарага`,
+        url: `https://mcesii.ru`,
         icon_url: `https://pp.userapi.com/c425626/v425626080/559b/vyVXOkJavME.jpg`
       },
       description: ``,
