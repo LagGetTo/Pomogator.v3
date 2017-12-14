@@ -22,7 +22,6 @@ exports.run = (client, message, params) => {
         url: `https://mcesii.ru`,
         icon_url: `https://pp.userapi.com/c425626/v425626080/559b/vyVXOkJavME.jpg`
       },
-      description: ``,
       timestamp: '2017-12-10T19:42:55+03:00',
       fields: [{
           name: `**Сегодня**`,
