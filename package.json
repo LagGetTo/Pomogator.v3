@@ -1,0 +1,23 @@
+{
+  "name": "axrsbot3",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "app.js",
+  "dependencies": {
+    "discord.js": "^11.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LagGetTo/Pomogator.test.git"
+  },
+  "author": "AxRS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LagGetTo/Pomogator.test/issues"
+  },
+  "homepage": "https://github.com/LagGetTo/Pomogator.test#readme"
+}
