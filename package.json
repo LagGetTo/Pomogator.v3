@@ -6,18 +6,20 @@
   "dependencies": {
     "discord.js": "^11.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "printscreen": "^1.2.1"
+  },
   "scripts": {
     "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LagGetTo/Pomogator.test.git"
+    "url": "git+https://github.com/LagGetTo/Pomogator.v3.git"
   },
   "author": "AxRS",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LagGetTo/Pomogator.test/issues"
+    "url": "https://github.com/LagGetTo/Pomogator.v3/issues"
   },
-  "homepage": "https://github.com/LagGetTo/Pomogator.test#readme"
+  "homepage": "https://github.com/LagGetTo/Pomogator.v3#readme"
 }
