@@ -2,7 +2,8 @@
   "name": "axrsbot3",
   "version": "1.0.0",
   "description": "test",
-  "main": "app.js",
+  "engines": { "node": "8.4.0" },
+  "main": "node app.js",
   "dependencies": {
     "discord.js": "^11.2.1",
     "moment": "^2.19.4"

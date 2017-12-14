@@ -56,4 +56,4 @@ client.elevation = message => {
   return permlvl;
 };
 
-client.login(settings.token);
+client.login(settings.token); //process.env.TOKEN
