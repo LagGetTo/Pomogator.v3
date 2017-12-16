@@ -12,48 +12,62 @@ const log = message => {
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
-fs.readdir('./commands/', (err, files) => {
-  if (err) console.error(err);
-  log(`Всего загружено ${files.length} команд.`);
-  files.forEach(f => {
-    let props = require(`./commands/${f}`);
-    log(`Загружена команда: ${props.help.name}. 👌`);
-    client.commands.set(props.help.name, props);
-    props.conf.aliases.forEach(alias => {
-      client.aliases.set(alias, props.help.name);
-    });
-  });
-});
+client.on("message", (message) => {
+      if (message.content.match('мурлок')) {
+        message.reply('**МРГЛХ** https://imgur.com/dnkrnmT');
+      } else
+        if (message.content.match('300')) {
+          const KappaPride = client.emojis.find("name", "KappaPride");
+          message.reply(` это ты зря ${KappaPride}\nОтсоси у тракториста :з`);
+        } else
+          if (message.content.match('орд')) {
+            const SMOrC = client.emojis.find("name", "Smorc");
+            message.reply(` **FOR THE HORDE!** ${SMOrC} https://imgur.com/IyIEwTu`);
+          }
+        });
 
-client.reload = command => {
-  return new Promise((resolve, reject) => {
-    try {
-      delete require.cache[require.resolve(`./commands/${command}`)];
-      let cmd = require(`./commands/${command}`);
-      client.commands.delete(command);
-      client.aliases.forEach((cmd, alias) => {
-        if (cmd === command) client.aliases.delete(alias);
+      fs.readdir('./commands/', (err, files) => {
+        if (err) console.error(err);
+        log(`Всего загружено ${files.length} команд.`);
+        files.forEach(f => {
+          let props = require(`./commands/${f}`);
+          log(`Загружена команда: ${props.help.name}. 👌`);
+          client.commands.set(props.help.name, props);
+          props.conf.aliases.forEach(alias => {
+            client.aliases.set(alias, props.help.name);
+          });
+        });
       });
-      client.commands.set(command, cmd);
-      cmd.conf.aliases.forEach(alias => {
-        client.aliases.set(alias, cmd.help.name);
-      });
-      resolve();
-    } catch (e) {
-      reject(e);
-    }
-  });
-};
 
-client.elevation = message => {
-  /* Проверка ролей и последующая работа с ней*/
-  let permlvl = 0;
-  const mod_role = message.guild.roles.find('name', settings.modrolename);
-  if (mod_role && message.member.roles.has(mod_role.id)) permlvl = 2;
-  const admin_role = message.guild.roles.find('name', settings.adminrolename);
-  if (admin_role && message.member.roles.has(admin_role.id)) permlvl = 3;
-  if (message.author.id === settings.ownerid) permlvl = 4;
-  return permlvl;
-};
+      client.reload = command => {
+        return new Promise((resolve, reject) => {
+          try {
+            delete require.cache[require.resolve(`./commands/${command}`)];
+            let cmd = require(`./commands/${command}`);
+            client.commands.delete(command);
+            client.aliases.forEach((cmd, alias) => {
+              if (cmd === command) client.aliases.delete(alias);
+            });
+            client.commands.set(command, cmd);
+            cmd.conf.aliases.forEach(alias => {
+              client.aliases.set(alias, cmd.help.name);
+            });
+            resolve();
+          } catch (e) {
+            reject(e);
+          }
+        });
+      };
 
-client.login(settings.token); //process.env.TOKEN
+      client.elevation = message => {
+        /* Проверка ролей и последующая работа с ней*/
+        let permlvl = 0;
+        const mod_role = message.guild.roles.find('name', settings.modrolename);
+        if (mod_role && message.member.roles.has(mod_role.id)) permlvl = 2;
+        const admin_role = message.guild.roles.find('name', settings.adminrolename);
+        if (admin_role && message.member.roles.has(admin_role.id)) permlvl = 3;
+        if (message.author.id === settings.ownerid) permlvl = 4;
+        return permlvl;
+      };
+
+      client.login(settings.token); //process.env.TOKEN
